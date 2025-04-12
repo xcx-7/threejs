@@ -23,7 +23,31 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
 
-     
+      // Cube 🟩
+      const cube = new THREE.Mesh(
+        new THREE.BoxGeometry(1, 1, 1),
+        new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+      );
+      scene.add(cube);
+
+      // Sphere 🔴
+      const sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(0.5, 32, 32),
+        new THREE.MeshBasicMaterial({ color: 0xff0000 })
+      );
+      sphere.position.x = -2; // move left
+      scene.add(sphere);
+
+      // Plane 🔵
+      const plane = new THREE.Mesh(
+        new THREE.PlaneGeometry(4, 4),
+        new THREE.MeshBasicMaterial({ color: 0x0000ff, side: THREE.DoubleSide })
+      );
+      plane.position.y = -2; // move down
+      plane.rotation.x = Math.PI / 2; // rotate to lay flat
+      scene.add(plane);
+
+
       renderer.render(scene, camera);
     </script>
   </body>
